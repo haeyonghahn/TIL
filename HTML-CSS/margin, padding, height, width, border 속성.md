@@ -10,9 +10,6 @@
 > 4. margin: -10px; 라면 ??   
 > >![marginPxMinus](https://github.com/haeyonghahn/TIL/blob/master/HTML-CSS/images/marginPxMinus.PNG)
 
-* margin 속성 : height와 wdith   
-
-
 ## padding
 * padding : Top Right Bottom Left;
 
