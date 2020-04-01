@@ -1,4 +1,4 @@
-# Margin, Padding, Width, Height, border 속성
+# Margin, Padding 속성
 ![MarginAndPadding](https://github.com/haeyonghahn/TIL/blob/master/HTML-CSS/images/MarginAndPadding.PNG)
 
 ## margin
