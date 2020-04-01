@@ -11,11 +11,10 @@
 > >![marginPxMinus](https://github.com/haeyonghahn/TIL/blob/master/HTML-CSS/images/marginPxMinus.PNG)
 
 * margin 속성 : height와 wdith   
-height는 이런거다
 
 
 ## padding
-padding : Top Right Bottom Left;
+* padding : Top Right Bottom Left;
 
 1. padding: 10px; -> margin: 10px 10px 10px 10px; (모두 같은 경우)
 2. padding: 10px 20px; -> margin 10px 20px 10px 20px; (상하 좌우 같은 경우) 
