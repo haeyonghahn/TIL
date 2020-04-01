@@ -7,3 +7,5 @@ margin : Top Right Bottom Left;
 
 1. margin: 10px; -> margin: 10px 10px 10px 10px;
 2. margin: 10px 20px; -> margin 10px 20px 10px 20px;
+
+## padding
