@@ -12,6 +12,7 @@ Filter는 web.xml, Interceptor는 spring-servlet.xml
 3. 구현 방식   
 Filter는 web.xml에서 설정을 하면 구현이 가능하지만, Interceptor는 설정은 물론 메서드 구현이 필요하다.
 ### 환경 설정 : spring-servlet.xml   
+```xml
 <!-- Interceptors -->
 	<mvc:interceptors>
 		<!-- <mvc:interceptor>
@@ -35,4 +36,31 @@ Filter는 web.xml에서 설정을 하면 구현이 가능하지만, Interceptor�
 			<mvc:exclude-mapping path="/assets/**"/>
 			<bean class="com.douzone.security.AuthInterceptor"></bean>
 		</mvc:interceptor>
-	</mvc:interceptors>
+	</mvc:interceptors>   
+```
+### 구현 방법   
+1. HandlerInterceptor 인터페이스 구현 -> preHandler만 주로 사용한다.
+2. HandlerInterceptorAdapter 상속   
+여기서는 2번째 방식을 사용하여 Interceptor를 구현한다.   
+![Interceptor02](https://github.com/haeyonghahn/TIL/blob/master/Spring/images/Interceptor02.PNG)   
+### 뷰 페이지    
+```jsp
+<form id="login-form" name="loginform" method="post" action="${pageContext.request.contextPath }/user/auth">   
+```   
+뷰페이지에서는 spring-servlet.xml에서 설정한 Interceptor 경로로 이동할 수 있게끔 설정한다. 그러면 기존에 Controller에서 설정하던 /user/login을 처리하기 위한 메소드가 필요없게 된다.   
+```java
+@RequestMapping(value = "/login", method = RequestMethod.GET)
+	public String login() {
+		return "user/login";
+	}
+
+//	@RequestMapping(value = "/login", method = RequestMethod.POST)
+//	public String login(HttpSession session, @ModelAttribute UserVo vo) {
+//		UserVo authUser = userService.getUser(vo);
+//		if (authUser == null) {
+//			return "user/login";
+//		}
+//		session.setAttribute("authUser", authUser);
+//		return "redirect:/";
+//	}
+```
