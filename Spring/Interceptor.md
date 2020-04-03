@@ -12,7 +12,6 @@ Filter는 web.xml, Interceptor는 spring-servlet.xml
 3. 구현 방식   
 Filter는 web.xml에서 설정을 하면 구현이 가능하지만, Interceptor는 설정은 물론 메서드 구현이 필요하다.
 ### 환경 설정 : spring-servlet.xml   
-'''
 <!-- Interceptors -->
 	<mvc:interceptors>
 		<!-- <mvc:interceptor>
@@ -37,4 +36,3 @@ Filter는 web.xml에서 설정을 하면 구현이 가능하지만, Interceptor�
 			<bean class="com.douzone.security.AuthInterceptor"></bean>
 		</mvc:interceptor>
 	</mvc:interceptors>
-'''
