@@ -140,7 +140,7 @@ GlobalExceptionHandler 클래스에서 request scope로 exception 객체를 전�
 ![ErrorMessage](https://github.com/haeyonghahn/TIL/blob/master/Spring/images/ErrorMessage.PNG)   
 ### 공통 에러 메시지 작성
 404 error나 500 error는 공통적으로 발생하는 에러 메시지이다.   
-404.jsp와 500.jsp 페이지를 만든다.
+views/error 폴더 안에 404.jsp와 500.jsp 페이지를 만든다.
 * 404.jsp
 ```jsp
 <%@ page language="java" contentType="text/html; charset=UTF-8"
