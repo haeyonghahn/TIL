@@ -156,7 +156,7 @@ UserVO의 앞 글자 U를 소문자 u로 바꿔야 하는데, 그 이유는 잘 
 defaultMessage는 유효성 검사가 실패했을 경우, 검증 조건을 알려주는 기본 메시지이다.
 테스트를 해보면 메시지가 영어이다. 그래서 메시지를 커스터마이징하겠다.
 
-## 메시지 커스터마이징
+# 메시지 커스터마이징 (Message-Converter)
 ### 환경 설정 : spring-servlet.xml
 ```xml
 <!-- MessageSource -->
