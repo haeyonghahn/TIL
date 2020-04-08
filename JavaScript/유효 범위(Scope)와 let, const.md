@@ -1,6 +1,6 @@
 # 유효 범위(Scope)와 let, const
 JavaScript에서 변수를 선언하는 방법에는 var, let, const 키워드가 있다.
-## 1. var - 함수 레벨 범위   
+## 1. var - 함수 레벨 범위 (Function Level Scope)
 var 키워드를 사용하여 변수를 선언하면 그 변수는 함수 레벨 범위를 갖는다.
 ```JavaScript
 function foo() {
@@ -27,3 +27,6 @@ console.log(x);
 ```
 이 코드는 에러를 발생하지 않는다. x는 if 내부에 선언되었지만 if는 함수가 아니기 때문에 x는 Global Scope이다.
 따라서 정상적으로 10을 출력한다.
+## 2. let, const - 블록 레벨 범위 (Block Level Scope)
+let, const 키워드를 사용하면 그 변수는 Block Level Scope를 갖는다.
+* let으로 선언된 변수는 값을 수정할 수 있다.
