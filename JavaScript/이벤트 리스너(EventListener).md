@@ -1,13 +1,6 @@
 # 이벤트 리스너(EventListener)
-## 1) 이벤트 리스너 등록 방법
-```JavaScript
-window.onload = function () {
-  alert('I\'m loaded');
-};
-```
-이벤트 리스너는 해당 이벤트에 대해 대기중인 것이다. 해당 이벤트가 발생했을 때 등록했던 이벤트 리스너가 실행된다.
-이벤트 리스너는 항상 on + '이벤트명'으로 명명된다.
-
+## 1) 이벤트 핸들링(Event Handling)
+이벤트란 대표적으로 클릭, 키보드 입력 등 사용자의 어떤 행위를 의미한다.
 자주 쓰이는 이벤트 목록은,
 * onblur : 객체가 focus를 잃었을 때
 * onchange : 객체의 내용이 바뀌고 focus를 잃었을 때
@@ -25,23 +18,12 @@ window.onload = function () {
 * onresize : 객체의 크기가 바뀌었을 때
 * onscroll : 스크롤바를 조작할 때
 * onsubmit : 폼이 전송될 때
-```JavaScript
-document.getElementById('clickMe').onclick = function () {
-  alert('I\'m clicked!');
-};
-```
-window 말고 여러 태그에 각각 이벤트를 설정할 수 있다.
-## 2) 이벤트 리스너 등록 방법
-이벤트를 붙이는 다른 방법으로 addEventListener가 있다. addEventListener 방식은 여러 이벤트를 등록할 수도 있고
-특정 이벤트를 제거할 수도 있다.
-```JavaScript
-function onClick() {
-  alert('I\'m clicked!');
-}
-function onClick2() {
-  alert('또다른 이벤트');
-}
-document.getElementById('clickMe').addEventListener('click', onClick); // 이벤트 연결
-document.getElementById('clickMe').addEventListener('click', onClick2); // 또 하나의 이벤트 연결
-document.getElementById('clickMe').removeEventListener('click', onClick); // 연결할 이벤트 중 하나 제거
-```
+
+이러한 이벤트를 처리하는 것을 이벤트 핸들링이라고 한다.
+
+이벤트 핸들링은 다음과 같은 과정으로 이뤄진다.
+1. 이벤트를 받아줄 요소를 선택한다.
+2. 그 요소가 어떤 이벤트에 반응할지, 즉 요소와 이벤트를 연결해주는 바인딩을 한다.
+3. 이벤트가 발생했을 때 실행될 코드를 작성한다.
+
+## 2) 바인딩(Binding)
