@@ -1,6 +1,5 @@
-# 이벤트 리스너(
-## 이벤트 리스너
-### 1) 이벤트 리스너 등록 방법
+# 이벤트 리스너(EventListener)
+## 1) 이벤트 리스너 등록 방법
 ```JavaScript
 window.onload = function () {
   alert('I\'m loaded');
@@ -32,7 +31,7 @@ document.getElementById('clickMe').onclick = function () {
 };
 ```
 window 말고 여러 태그에 각각 이벤트를 설정할 수 있다.
-### 2) 이벤트 리스너 등록 방법
+## 2) 이벤트 리스너 등록 방법
 이벤트를 붙이는 다른 방법으로 addEventListener가 있다. addEventListener 방식은 여러 이벤트를 등록할 수도 있고
 특정 이벤트를 제거할 수도 있다.
 ```JavaScript
