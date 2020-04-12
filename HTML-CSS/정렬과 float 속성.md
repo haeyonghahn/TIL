@@ -14,7 +14,7 @@
 </div>
 ```   
 ![정렬01](https://github.com/haeyonghahn/TIL/blob/master/HTML-CSS/images/%EC%A0%95%EB%A0%AC01.PNG)    
-### 1) 문제점
+### 문제점
 위의 이미지에서 부모 태그에 text-align을 사용하면 자식 태그들이 정렬된다. 가로 정렬은 간단하지만, 보통 가운데 정렬을 할 때 세로로 가운데 정렬할 때 문제가 발생한다.   
 
 세로로 가운데 정렬을 할 때 vertical-align: middle; 속성을 사용하지만 vertical-align의 특징은 다른 태그를 기준으로 vertical-align이 된다는 것이다. 즉 옆의 다른 태그가 있어야 그 태그에 맞춰 세로 정렬이 되는 것이다.
