@@ -1,2 +1,13 @@
 # 클로저(Closure)
 클로저란 이미 생명 주기가 끝난 외부 함수의 변수를 클로저라고 한다.
+```JavaScript
+function outer() {
+  var x = 10;
+  
+  function inner() {
+    x++;
+    console.log(x);
+  }
+  return inner;
+}
+```
