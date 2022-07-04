@@ -1,4 +1,4 @@
-# EC2 프리티어 요금
+# AWS 요금
 ## Elastic IP
 Elastic IP 주소는 ip주소를 고정으로 사용할 수 있도록 해주는 서비스이다. EC2가 stop/start 되는 경우 ip주소가 매번 변경되는데 이를 EC2에 연결해두고 Elastic ip주소로 접근하면 항상 같은 주소로 접근할 수 있게 된다.
 
@@ -9,9 +9,16 @@ Elastic IP 주소는 ip주소를 고정으로 사용할 수 있도록 해주는 
 - 만약 Elastic IP를 만들어두고 할당을 하지 않은 상태라면 실행중인 EC2에 할당 혹은 Elastic ip를 삭제해야한다.
 
 ## RDS
-RDS도 1개는 프리티어에서 무료로 사용할 수 있다. `다만 RDS생성시 Multi-AZ와 고성능 I/O인 Provisioned IOPS Storate를 사용하지 않도록 설정해야 한다.` 기본설정으로 [Yes]가 선택되어 있기 때문에 많이 실수하는 부분이다.
+MySQL, PostgreSQL, MariaDB, Oracle BYOL 또는 SQL Server를 위한 관리형 관계형 데이터베이스 서비스이다.
 
-![RDS요금](https://github.com/haeyonghahn/TIL/blob/master/AWS/images/RDS%EC%9A%94%EA%B8%88%EC%B2%AD%EA%B5%AC.PNG)
+- RDS 인스턴스 1개 무료 사용 가능
+- 월별 750시간까지 무료
+- 단, 해당 DB엔진이 db.t2.micro 타입만 사용 가능
+- 범용(SSD) 데이터베이스 스토리지 20GB 제한. 만일 10GB를 사용하는 RDS 인스턴스 3개를 생성하면 과금이 되게 된다 (30GB이 되니까)
+- 데이터베이스 백업 및 DB 스냅샷용 스토리지 20GB
+- RDS 생성할때 오토 백업 안되게 주의 
+- RDS 스토리지 자동 조정 옵션 끄기 
+- Multi-AZ와 고성능 I/O인 Provisioned IOPS Storate를 사용하지 않도록 설정
 
 ## ElastiCache
 프리티어에서 ElastiCache 1개는 무료로 사용할 수 있다. 무료 사용 대상은 `t2.micro`이다.
@@ -52,3 +59,7 @@ EC2생성 시 기본세팅을 조정하지 않았다면 EC2 1개당 8GB(최대30
 
 위의 경우처럼 EC2 6개를 생성하고 STOP만 해두었다면 6개의 EBS볼륨은 그대로 남아있게 된다.   
 8GB X 6개 = 48GB를 사용하고 있으므로 프리티어 30GB를 초과하게 되어 요금이 발생한다. 사용하지 않는 EC2가 있다면 `stop`이 아닌 `terminate`를 시켜주어 EBS 사용량 초과로 요금이 발생하는 것을 막아야한다.
+
+## 출처
+- https://inpa.tistory.com/entry/AWS-%F0%9F%92%B0-%ED%94%84%EB%A6%AC%ED%8B%B0%EC%96%B4-%EC%9A%94%EA%B8%88-%ED%8F%AD%ED%83%84-%EB%B0%A9%EC%A7%80-%F0%9F%92%B8-%EB%AC%B4%EB%A3%8C-%EC%82%AC%EC%9A%A9%EB%9F%89-%EC%A0%95%EB%A6%AC#AWS_%ED%94%84%EB%A6%AC%ED%8B%B0%EC%96%B4_%EA%B3%BC%EA%B8%88_(AWS_Reduce_Cost)
+- https://gun0912.tistory.com/45
