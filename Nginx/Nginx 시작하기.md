@@ -12,7 +12,7 @@ nginx -v
 nginx version: nginx/1.20.0
 ```
 ### nginx 서비스 시작하기
-```
+```linux
 sudo service nginx start
 
 Redirecting to /bin/systemctl start nginx.service
@@ -20,4 +20,18 @@ Redirecting to /bin/systemctl start nginx.service
 ### 실행 확인하기
 ```linux
 sudo systemctl status nginx
+```
+![nginx실행확인](https://github.com/haeyonghahn/TIL/blob/master/Nginx/images/nginx%EC%8B%A4%ED%96%89%ED%99%95%EC%9D%B8.PNG)
+
+### nginx 서비스 중단하기
+```linux
+sudo systemctl stop nginx
+```
+### nginx 오류 확인하기
+```linux
+sudo nginx -t
+```
+### nginx 재시작하기
+```linux
+sudo service nginx restart
 ```
