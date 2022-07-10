@@ -1,5 +1,4 @@
 # Nginx
-## EC2에서 nginx 설치
 ### nginx 설치
 `amazon-linux-2`의 경우 `yum`을 활용하여 `nginx`의 설치가 지원되지 않는다. 그렇기 때문에 `amazon-linux-extras`를 활용하여 nginx를 설치해야 한다.
 ```linux
