@@ -34,3 +34,14 @@ sudo nginx -t
 ```linux
 sudo service nginx restart
 ```
+### 수정된 파일 적용하여 연결을 끊지 않고 재실행
+```linux
+sudo service nginx reload
+```
+### 자동 시작 비활성화, 활성화
+```linux
+기본적으로 nginx는 서버가 부팅될 때 자동으로 시작한다.
+
+sudo service disable nginx
+sudo service enable nginx
+```
