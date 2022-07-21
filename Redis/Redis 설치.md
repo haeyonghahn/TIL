@@ -43,6 +43,14 @@ $ sudo service redis-server start             // 실행
 $ systemctl status redis-server.service       // 상태확인
 $ sudo systemctl restart redis-server.service // 재실행
 ```
+## redis 통신 확인
+```linux
+$ ps aux | grep redis
+```
+## 포트 죽이기 
+```linux
+kill -9 8821
+```
 
 ## 출처
 https://uwostudy.tistory.com/73?category=328168    
