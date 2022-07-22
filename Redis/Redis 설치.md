@@ -13,21 +13,21 @@
 # 접속 테스트
 [ec2-user@ip-xx.xx.xxx ~]$ redis-cli -h ec2-xx-xx-xxx.ap-northeast-2.compute.amazonaws.com
 ```
-## 디렉토리 생성 및 복사
+~~## 디렉토리 생성 및 복사~~
 ```linux
 $ sudo mkdir /etc/redis 
 $ sudo mkdir /var/lib/redis
 $ sudo cp src/redis-server src/redis-cli /usr/local/bin/
 $ sudo cp redis.conf /etc/redis/
 ```
-## /etc/redis.conf 수정
+~~## /etc/redis.conf 수정~~
 ```linux
 daemonize yes
 bind 0.0.0.0                      // 모든 IP 접근허용처리
 dir /var/lib/redis
 logfile "/var/log/redis_6379.log"
 ```
-## 자동 실행을 위한 설정
+~~## 자동 실행을 위한 설정~~
 ```linux
 $ cd /tmp
 $ wget https://raw.github.com/saxenap/install-redis-amazon-linux-centos/master/redis-server
