@@ -47,6 +47,10 @@ vi redis.conf
 daemonize no <- yes로 변경
 [...]
 ```
+## redis-server 실행
+```linux
+[ec2-user@ip-xxx.xx.xxx redis-stable]$ src/redis-server ./redis.conf
+```
 
 ## redis 통신 확인
 ```linux
