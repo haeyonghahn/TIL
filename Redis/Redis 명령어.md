@@ -57,6 +57,8 @@ flushdb : 현재 사용중인 DB 의 모든 데이터 삭제
 ```
 ```redis
 info : redis 서버 설정 상태 조회
+
+예시) info replication
 ```
 ### Set
 Redis 에서는 Set 에 포함된 값들을 멤버라고 표현한다. 여러 멤버가 모여 집합 (Set) 을 구성한다.    
