@@ -41,9 +41,9 @@ $ sudo chkconfig --add redis-server
 $ sudo chkconfig --level 345 redis-server on
 ```
 
-## redis-server 실행
+## redis-server 백그라운드 실행
 ```linux
-[ec2-user@ip-xxx.xx.xxx init.d]$ redis-server start
+[root@ip-xxx.xx.xxx init.d]$ redis-server /etc/redis/redis.conf
 ```
 
 ## redis-cli 실행시 DEINED 발생 해결
