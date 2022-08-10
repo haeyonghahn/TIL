@@ -45,3 +45,5 @@ sudo service nginx reload
 sudo service disable nginx
 sudo service enable nginx
 ```
+### 참고 
+https://jojoldu.tistory.com/441
