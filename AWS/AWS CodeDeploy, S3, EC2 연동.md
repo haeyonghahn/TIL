@@ -2,7 +2,7 @@
 ## [Github] Secrets 설정
 `[Github] Secrets 설정` 은 나중에 `Github Action` 을 사용하여 `CD` 를 설정하기 위한 작업이다.    
 
-참고 : https://github.com/haeyonghahn/TIL/blob/master/GithubAction/CI%2CCD%20%EC%84%A4%EC%A0%95.md
+참고 : https://github.com/haeyonghahn/TIL/tree/master/GithubAction
 
 우선 workflow.yaml에서 사용 할 수 있도록, aws에 접근 가능한 AWS-ACCESS-KEY와 SECRET-KEY를 Github에 설정해야 합니다. 참고로 이화면 생성하는 변수들은 전부 workflow.yaml에서 사용가능하며, slack webhook url 이나 암호가 필요한 여러 변수들을 입력하여 사용 할 수 있습니다.
 
