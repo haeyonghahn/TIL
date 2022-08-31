@@ -109,6 +109,31 @@ more && printf "hello\n"
 ```linux
 첫 번째 명령의 결과가 에러가 발생할 경우 뒤에 명령을 수행.
 ```
+### 리다이렉션(<, >)
+- program `>` file_name   
+program에서 출력하는 것을 file_name이라는 파일에 기록. 에러 메시지는 파일로 저장되지 않는다.
+```linux
+[root@localhost tmp]# ls
+systemd-private-b2dd06a5829f42f5b5f2e122f17b9afb-ModemManager.service-OOhWCc
+systemd-private-b2dd06a5829f42f5b5f2e122f17b9afb-bolt.service-KuASd9
+systemd-private-b2dd06a5829f42f5b5f2e122f17b9afb-chronyd.service-mPGGCi
+systemd-private-b2dd06a5829f42f5b5f2e122f17b9afb-colord.service-uTlHDZ
+systemd-private-b2dd06a5829f42f5b5f2e122f17b9afb-fwupd.service-mV4Wkl
+systemd-private-b2dd06a5829f42f5b5f2e122f17b9afb-rtkit-daemon.service-eaiBmp
+
+[root@localhost tmp]# ls > list_stdout
+[root@localhost tmp]# cat list_stdout
+list_stdout
+systemd-private-b2dd06a5829f42f5b5f2e122f17b9afb-ModemManager.service-OOhWCc
+systemd-private-b2dd06a5829f42f5b5f2e122f17b9afb-bolt.service-KuASd9
+systemd-private-b2dd06a5829f42f5b5f2e122f17b9afb-chronyd.service-mPGGCi
+systemd-private-b2dd06a5829f42f5b5f2e122f17b9afb-colord.service-uTlHDZ
+systemd-private-b2dd06a5829f42f5b5f2e122f17b9afb-fwupd.service-mV4Wkl
+systemd-private-b2dd06a5829f42f5b5f2e122f17b9afb-rtkit-daemon.service-eaiBmp
+```
+- program `>>` file_name    
+꺽쇠가 두개 연달아 있는 것은 파일의 끝에 내용을 덧붙이라는 것이다.
+
 ### kill
 ```linux
 -9 : 
