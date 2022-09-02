@@ -20,3 +20,7 @@
 wslstorestorage.blob.core.windows.net/wslblob/wsl_update_x64.msi
 
 ![image](https://user-images.githubusercontent.com/31242766/188199624-f76403fe-e171-4bcd-9180-843c906cbc32.png)
+
+#### 5. 도커 시작
+
+![image](https://user-images.githubusercontent.com/31242766/188202363-83f103ce-b0b7-4519-a8d5-d1c99dc0497b.png)
