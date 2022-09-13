@@ -1,1 +1,85 @@
 ## Github Action With Maven
+```yml
+# This workflow will build a Java project with Maven, and cache/restore any dependencies to improve the workflow execution time
+# For more information see: https://help.github.com/actions/language-and-framework-guides/building-and-testing-java-with-maven
+
+name: Spring Boot & Maven CI/CD
+
+on:
+  push:
+    branches: [ "master" ]
+  pull_request:
+    branches: [ "master" ]
+
+jobs:
+  build:
+    # 실행 환경 지정
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Step 1 - Checkout main branch from Github
+      uses: actions/checkout@v3
+    
+    - name: Step 2 - Set up JDK 1.8
+      uses: actions/setup-java@v1
+      with:
+        java-version: 1.8
+        
+    - name: Step 3 - Build with Maven
+      run: mvn -B package --file pom.xml
+      
+    - name: Step 4 - List the current directory
+      run: ls -a
+      
+    - name: Step 5 - What is in the target folder
+      run: |
+        cd target
+        ls -a
+        
+    - name: Step 6 - Make directory for deploy
+      run: mkdir deploy
+      
+    - name: Stein 7 - Copy jar
+      run: cp ./target/*.jar ./deploy
+      
+    - name: Step 8 - What is in the deploy folder
+      run: |
+        cd deploy
+        ls -a
+    
+    - name: Step 9 - Copy appspec
+      run: cp appspec.yml ./deploy
+    
+    - name: Step 10 - Copy Shell
+      run: | 
+        cp ./scripts/* ./deploy
+        cd deploy
+        ls -la
+      
+    - name: Step 11 - Grant execute permission
+      run: chmod +x ./deploy/deploy.sh
+
+    - name: Step 12 - Make zip file
+      run: zip -r githubAction.zip ./deploy
+      
+    - name: Step 13 - Deliver to AWS S3
+      env:
+        AWS_ACCESS_KEY_ID: ${{ secrets.ACCESS_KEY }}
+        AWS_SECRET_ACCESS_KEY: ${{ secrets.SECRET_KEY }}
+      run: |
+        aws s3 cp \
+        --region ap-northeast-2 \
+        --acl private \
+        ./githubAction.zip s3://my-2andgo-bucket/
+    - name: Step 14 - Deploy with AWS codeDeploy
+      env:
+        AWS_ACCESS_KEY_ID: ${{ secrets.ACCESS_KEY }}
+        AWS_SECRET_ACCESS_KEY: ${{ secrets.SECRET_KEY }}
+      run: |
+        aws deploy create-deployment \
+        --application-name gitubaction \
+        --deployment-group-name githubaction-group \
+        --file-exists-behavior OVERWRITE \
+        --s3-location bucket=my-2andgo-bucket,bundleType=zip,key=githubAction.zip \
+        --region ap-northeast-2
+```
