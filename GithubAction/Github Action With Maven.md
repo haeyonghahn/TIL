@@ -1,4 +1,6 @@
 ## Github Action With Maven
+`Spring Boot` 와 `Maven` 을 이용하여 Github Action `workflow` 작성한 `Github Action CI/CD` 를 정리한다.
+
 ```yml
 # This workflow will build a Java project with Maven, and cache/restore any dependencies to improve the workflow execution time
 # For more information see: https://help.github.com/actions/language-and-framework-guides/building-and-testing-java-with-maven
