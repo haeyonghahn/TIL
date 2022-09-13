@@ -98,3 +98,6 @@ jobs:
         --s3-location bucket=my-2andgo-bucket,bundleType=zip,key=githubAction.zip \
         --region ap-northeast-2
 ```
+## 참고
+https://callmemaru.com/posts/github-actions-learning-3/       
+https://fe-developers.kakaoent.com/2022/220106-github-actions/
