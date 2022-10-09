@@ -18,7 +18,7 @@ str1.equals(str2) : true
 ```
 `==` 연산자는 리터럴 값을 비교하는데 `new String()` 과 `new String()` 은 서로 다른 주소값을 참조하는 객체이기 때문에 false 를 반환한다.   
 
-## hashCode
+## hashCode()
 ### Card 클래스
 ```java
 public class Card {
