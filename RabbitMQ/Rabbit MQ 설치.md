@@ -41,3 +41,7 @@ rabbitmqctl add_user [ID] [PASSWORD]
 rabbitmqctl set_user_tags [ID] administrator <- 관리자 권한을 부여한다.
 rabbitmqctl set_permissions -p / [ID] ".*" ".*" ".*"
 ```
+
+## 참고
+https://chanzu.tistory.com/m/105     
+https://afsdzvcx123.tistory.com/m/entry/RabbitMQ-RabbitMQ-%EC%84%A4%EC%B9%98
