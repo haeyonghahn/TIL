@@ -6,3 +6,5 @@
   - https://cwiki.apache.org/confluence/display/KAFKA/Clients
 
 ![image](https://user-images.githubusercontent.com/31242766/197896542-e5edc207-0fa0-47e8-9762-30a34ac864f0.png)
+
+## Kafka 서버 기동
