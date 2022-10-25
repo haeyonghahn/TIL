@@ -31,3 +31,6 @@
 - `Zookeeper` : 카프카 클러스터 정보 및 분산처리 관리 등 메타데이터를 저장한다.
 - `Producer` : 메시지(이벤트)를 발행하여 생산(Write)하는 주체
 - `Consumer` : 메시지(이벤트)를 구독하여 소비(Read)하는 주체
+
+## 참고
+https://ifuwanna.tistory.com/487    
