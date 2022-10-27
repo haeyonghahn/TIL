@@ -32,3 +32,11 @@
 ```
 
 ### producer 기동
+```console
+.\bin\windows\kafka-console-producer.bat --broker-list localhost:9092 --topic quickstart-events
+```
+
+### consumer 기동
+```console
+.\bin\windows\kafka-console-consumer.bat --bootstrap-server localhost:9092 --topic quickstart-events --from-beginning
+```
