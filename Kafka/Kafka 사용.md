@@ -40,3 +40,9 @@
 ```console
 .\bin\windows\kafka-console-consumer.bat --bootstrap-server localhost:9092 --topic quickstart-events --from-beginning
 ```
+
+## 테스트
+상하좌우 순으로 Zookeeper 서버, kafka 서버, topic 기동, producer 기동, consumer 기동한 결과이다.
+
+![image](https://user-images.githubusercontent.com/31242766/198299740-362c72e7-90b1-4bfe-939e-c3c1ca92f1c3.png)
+
