@@ -8,3 +8,27 @@
 ![image](https://user-images.githubusercontent.com/31242766/197896542-e5edc207-0fa0-47e8-9762-30a34ac864f0.png)
 
 ## Kafka 서버 기동
+`kafka`가 설치된 경로로 이동하여 아래와 같은 명령어를 실행한다. (window 를 사용하고 있다.) 
+### Zookeeper 서버 기동
+```console
+.\bin\windows\zookeeper-server-start.bat .\config\zookeeper.properties
+```
+### kafka 서버 기동
+```console
+.\bin\windows\kafka-server-start.bat .\config\server.properties
+```
+### topic 기동
+#### topic 리스트 확인
+```console
+.\bin\windows\kafka-topics.bat --bootstrap-server localhost:9092 --list
+```
+#### topic 생성하기
+```console
+.\bin\windows\kafka-topics.bat --bootstrap-server localhost:9092 --create --topic quickstart-events --partitions 1
+```
+#### topic 상세 정보
+```console
+.\bin\windows\kafka-topics.bat --bootstrap-server localhost:9092 --describe --topic quickstart-events
+```
+
+### producer 기동
