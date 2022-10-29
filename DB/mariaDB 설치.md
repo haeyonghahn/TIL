@@ -27,3 +27,11 @@
   --password=test1357
 ```
 ![image](https://user-images.githubusercontent.com/31242766/198815826-3a708900-2924-4f4f-a5dc-80f436acb817.png)
+
+- `mariaDB` 서비스 시작
+
+![image](https://user-images.githubusercontent.com/31242766/198815975-63c22158-1d12-4a46-9222-2272125573d9.png)
+
+- `mariaDB` 접속
+
+![image](https://user-images.githubusercontent.com/31242766/198816316-dcaa9339-cae9-4aea-a936-0452aa53a525.png)
