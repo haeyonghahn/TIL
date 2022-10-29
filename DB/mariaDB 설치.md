@@ -12,3 +12,4 @@
   - mysql> flush privileges;
 
 ## Windows
+[mariaDB 다운로드](https://mariadb.org/) 
