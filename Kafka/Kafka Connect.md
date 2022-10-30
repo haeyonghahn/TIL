@@ -36,7 +36,7 @@ plugin.path=[confluentinc-kafka-connect-jdbc-10.0.1 폴더]
 ```
 
 ### JdbcSourceConnector에서 MariaDB 사용하기 위해 mariadb 드라이버 복사
-./share/java/kafka/ 폴더에 mariadb-java-client-2.7.2.jar  파일 복사
+./share/java/kafka/ 폴더에 mariadb-java-client-버전.jar  파일 복사
 
 ## Windows 설치
 ### Kafka Connect 설치
@@ -59,3 +59,12 @@ cd  $KAFKA_CONNECT_HOME
   
   ![image](https://user-images.githubusercontent.com/31242766/198863432-8b405a6b-b350-453c-a58a-c24cfb7b8690.png)
 - .\etc\kafka\connect-distributed.properties 파일 마지막에 아래 plugin 정보 추가
+
+![image](https://user-images.githubusercontent.com/31242766/198863512-c87b4e72-475e-441d-aafa-762e818a6b65.png)
+
+- JdbcSourceConnector에서 MariaDB 사용하기 위해 mariadb 드라이버 복사
+  - ${USER.HOME}\.m2 폴더에서 mariadb-java-client-버전.jar 파일을 ./share/java/kafka 복사
+  
+  ![image](https://user-images.githubusercontent.com/31242766/198863540-f154945f-03ed-4be7-8db4-05425a965142.png)
+
+Kafka Connect 에서 데이터 연결을 할 때 사용하는 걸로 Jdbc를 사용함으로써 관계형 데이터베이스 사용할 준비가 끝이 난다.
