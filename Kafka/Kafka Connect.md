@@ -14,7 +14,7 @@ Kafka Cluster 상태에서 데이터를 가져오는 쪽(`Kafka Connect Source`)
 ### Kafka Connect 설치
 ```linux
 curl -O https://packages.confluent.io/archive/7.2/confluent-community-7.2.2.tar.gz <- 2022년 10월 30일 기준 최신버전
-tar xvf confluent-community-6.1.0.tar.gz
+tar xvf confluent-community-7.2.2.tar.gz
 cd  $KAFKA_CONNECT_HOME
 ```
 ### Topic 목록 확인 (Kafka Connect 실행 후 확인)
@@ -39,12 +39,12 @@ confluentinc-kafka-connect-jdbc-10.0.1.zip
 ### Kafka Connect 설치
 ```powershell
 curl -O https://packages.confluent.io/archive/7.2/confluent-community-7.2.2.tar.gz <- 2022년 10월 30일 기준 최신버전
-tar xvf confluent-community-6.1.0.tar.gz
+tar xvf confluent-community-7.2.2.tar.gz
 cd  $KAFKA_CONNECT_HOME
 ```
 ### Kafka Connect 실행
 ```powershell
-C:\confluent-7.2.2> .\bin\windows\connect-distributed.bat .\etc\kafka\connect-distributed.properties
+.\bin\windows\connect-distributed.bat .\etc\kafka\connect-distributed.properties
 ```
 - 실행 시 아래와 같은 오류 발생하면, binary 파일 대신 source 파일을 다운로드 받은 것인지 확인
   - __Classpath is empty. Please build the project e.g. by running 'gradlew jarAll'__
