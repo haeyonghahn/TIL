@@ -44,7 +44,7 @@ cd  $KAFKA_CONNECT_HOME
 ```
 ### Kafka Connect 실행
 ```powershell
-.\bin\windows\connect-distributed.bat .\etc\kafka\connect-distributed.properties
+C:\confluent-7.2.2> .\bin\windows\connect-distributed.bat .\etc\kafka\connect-distributed.properties
 ```
 - 실행 시 아래와 같은 오류 발생하면, binary 파일 대신 source 파일을 다운로드 받은 것인지 확인
   - __Classpath is empty. Please build the project e.g. by running 'gradlew jarAll'__
