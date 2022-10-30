@@ -13,36 +13,32 @@ Kafka Cluster 상태에서 데이터를 가져오는 쪽(`Kafka Connect Source`)
 ## MacOS 설치
 ### Kafka Connect 설치
 ```linux
-curl -O http://packages.confluent.io/archive/5.5/confluent-community-5.5.2-2.12.tar.gz
-curl -O http://packages.confluent.io/archive/6.1/confluent-community-6.1.0.tar.gz
+curl -O https://packages.confluent.io/archive/7.2/confluent-community-7.2.2.tar.gz <- 2022년 10월 30일 기준 최신버전
 tar xvf confluent-community-6.1.0.tar.gz
 cd  $KAFKA_CONNECT_HOME
 ```
-### Kafka Connect 실행
-```linux
-./bin/connect-distributed ./etc/kafka/connect-distributed.properties
-```
-### Topic 목록 확인
+### Topic 목록 확인 (Kafka Connect 실행 후 확인)
 ```linux
 ./bin/kafka-topics.sh --bootstrap-server localhost:9092 --list
 ```
+
 ### JDBC Connector 설치
 https://docs.confluent.io/5.5.1/connect/kafka-connect-jdbc/index.html     
 confluentinc-kafka-connect-jdbc-10.0.1.zip 
 
-### etc/kafka/connect-distributed.properties 파일 마지막에 아래 plugin 정보 추가
-```properties
-plugin.path=[confluentinc-kafka-connect-jdbc-10.0.1 폴더]
+### Kafka Connect 실행
+```linux
+./bin/connect-distributed ./etc/kafka/connect-distributed.properties
 ```
-
-### JdbcSourceConnector에서 MariaDB 사용하기 위해 mariadb 드라이버 복사
-./share/java/kafka/ 폴더에 mariadb-java-client-버전.jar  파일 복사
+- etc/kafka/connect-distributed.properties 파일 마지막에 아래 plugin 정보 추가
+  - plugin.path=[confluentinc-kafka-connect-jdbc-10.0.1 폴더]
+- JdbcSourceConnector에서 MariaDB 사용하기 위해 mariadb 드라이버 복사
+  - ./share/java/kafka/ 폴더에 mariadb-java-client-버전.jar  파일 복사
 
 ## Windows 설치
 ### Kafka Connect 설치
 ```powershell
-curl -O http://packages.confluent.io/archive/5.5/confluent-community-5.5.2-2.12.tar.gz
-curl -O http://packages.confluent.io/archive/6.1/confluent-community-6.1.0.tar.gz
+curl -O https://packages.confluent.io/archive/7.2/confluent-community-7.2.2.tar.gz <- 2022년 10월 30일 기준 최신버전
 tar xvf confluent-community-6.1.0.tar.gz
 cd  $KAFKA_CONNECT_HOME
 ```
