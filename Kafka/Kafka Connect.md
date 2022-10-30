@@ -23,7 +23,10 @@ cd  $KAFKA_CONNECT_HOME
 ```
 
 ### JDBC Connector 설치
-https://docs.confluent.io/5.5.1/connect/kafka-connect-jdbc/index.html     
+https://docs.confluent.io/5.5.1/connect/kafka-connect-jdbc/index.html 
+
+![image](https://user-images.githubusercontent.com/31242766/198865131-0334faf8-9292-4c23-8597-c8b9bdd6f706.png)
+
 confluentinc-kafka-connect-jdbc-10.0.1.zip 
 
 ### Kafka Connect 실행
