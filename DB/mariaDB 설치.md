@@ -35,3 +35,39 @@
 - `mariaDB` 접속
 
 ![image](https://user-images.githubusercontent.com/31242766/198816316-dcaa9339-cae9-4aea-a936-0452aa53a525.png)
+
+- 데이터베이스 생성
+```sql
+mysql> create database mydb;
+```
+
+- Access denied 발생시) 
+```sql
+$ sudo mysql –u root
+mysql> use mysql;
+mysql> select user, host, plugin FROM mysql.user;
+mysql> set password for 'root'@'localhost'=password('test1357’);
+mysql> flush privileges;
+```
+
+- 테이블 생성
+```sql
+create table users(
+    id int auto_increment primary key,
+    user_id varchar(20),
+    pwd varchar(20),
+    name varchar(20),
+    created_at datetime default NOW()
+);
+
+create table orders (
+    id int auto_increment primary key,
+    product_id varchar(20) not null,
+    qty int default 0,
+    unit_price int default 0,
+    total_price int default 0,
+    user_id varchar(50) not null,
+    order_id varchar(50) not null,
+    created_at datetime default NOW()
+);
+```
