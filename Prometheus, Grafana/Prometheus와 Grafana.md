@@ -19,7 +19,7 @@ scrape_configs:
     # scheme defaults to 'http'.
 
     static_configs:
-      - targets: ["localhost:9090"]
+    - targets: ["localhost:9090"]
   - job_name: 'user-service'
     scrape_interval: 15s
     metrics_path: '/user-service/actuator/prometheus'
