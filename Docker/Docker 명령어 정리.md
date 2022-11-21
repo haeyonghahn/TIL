@@ -5,7 +5,8 @@ docker run [OPTIONS] IMAGE[:TAG|@DIGEST] [COMMAND] [ARG...]
 
 IMAGE : 이미지 이름
 TAG : TAG 이름을 명시하지 않으면 기본적으로 'latest'라는 이름이 자동으로 붙는다. 일종의 버전처럼 생각하면 된다.
-예시) docker run ubuntu:16.04
+예시1) docker run ubuntu:16.04
+예시2) docker run -d -p 3306:3306 -e MYSQL_ALLOW_EMPTY_PASSWORD=true --name mysql mysql:5.7
 ```
 |옵션|설명|
 |----|------------------------|
