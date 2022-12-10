@@ -3,7 +3,7 @@
 * **[[Github] Secrets 설정](#[Github]-Secrets-설정)**
 * **[[AWS] S3 Bucket 생성](#[AWS]-S3-Bucket-생성)**
 * **[[AWS] ROLE 생성](#[AWS]-ROLE-생성)**
-* **[[AWS] EC2 instance 생성 및 role 설정](#[AWS]-EC2 instance-생성-및-role-설정)**
+* **[[AWS] EC2 instance 생성 및 role 설정](#[AWS]-EC2-instance-생성-및-role-설정)**
 * **[[AWS] codedeploy 설정](#[AWS]-codedeploy-설정)**
 * **[[AWS] codedeploy agent 설치](#[AWS]-codedeploy-agent-설치)**
 
