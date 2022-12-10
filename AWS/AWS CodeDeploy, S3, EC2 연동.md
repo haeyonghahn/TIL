@@ -1,4 +1,12 @@
 # AWS CodeDeploy, S3, EC2 연동
+## 목차
+* **[[Github] Secrets 설정](#[Github]-Secrets-설정)**
+* **[[AWS] S3 Bucket 생성](#[AWS]-S3-Bucket-생성)**
+* **[[AWS] ROLE 생성](#[AWS]-ROLE-생성)**
+* **[[AWS] EC2 instance 생성 및 role 설정](#[AWS]-EC2 instance-생성-및-role-설정)**
+* **[[AWS] codedeploy 설정](#[AWS]-codedeploy-설정)**
+* **[[AWS] codedeploy agent 설치](#[AWS]-codedeploy-agent-설치)**
+
 ## [Github] Secrets 설정
 `[Github] Secrets 설정` 은 나중에 `Github Action` 을 사용하여 `CD` 를 설정하기 위한 작업이다.    
 
