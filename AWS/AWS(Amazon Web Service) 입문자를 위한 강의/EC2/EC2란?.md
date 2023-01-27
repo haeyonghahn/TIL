@@ -66,29 +66,6 @@ __지시자__
 `<proxy1>, <proxy2>`   
 하나의 요청이 여러 프록시들을 거치면, 각 프록시의 IP 주소들이 차례로 열거된다. 즉, 가장 오른쪽 IP 주소는 가장 마지막에 거친 프록시의 IP 주소이고, 가장 왼쪽의 IP 주소는 최초 클라이언트의 IP 주소다.   
 
-> 참고 : 
-> 1. Nginx   
-> Nginx의 경우는 컴파일 시 --with-http_realip_module 옵션을 추가해야 합니다. 그리고 nginx.conf에 다음과 같은 설정을 추가해야 합니다.
-```sh
-real_ip_header X-Forwarded-For;
-```
-> 2. Tomcat, 받는 입장에서의 처리     
-> XFF에 Client IP를 실어보내지만 정작 request.getHeader("X-FORWARDED-FOR"); 로 꺼내지 않고 request.getRemoteAddr(); 로 꺼낸다면 결국 
-> Client IP가 아닌 Nginx나 Apache 웹 서버의 IP를 가져오게 될 것이다.
-> 
-> 이때는 Tomcat의 RemoteIpValve를 이용하여 Client IP 처리를 조작할 수 있다.
-> 
-> Tomcat 앞단에 위치한 웹 서버 IP가 192.168.0.10, 192.168.0.11이다.
-> Client IP는 X-Forwarded-For 헤더에 담겨있다.
-```xml
- <Valve
-   className="org.apache.catalina.valves.RemoteIpValve"
-   internalProxies="192\.168\.0\.10|192\.168\.0\.11"
-   remoteIpHeader="x-forwarded-for"
-   />
-```
-> 위와 같이 설정하면 request.getRemoteAddr(); 을 했을 때 X-Forwarded-For 헤더에 담겨있는 IP를 확인할 수 있게 된다.
-
 __예제__   
 ```console
 X-Forwarded-For: 2001:db8:85a3:8d3:1319:8a2e:370:7348
