@@ -1,8 +1,8 @@
 # EC2란?
 ## 목차
-* **[EC2(Elastic Compute Cloud)](#EC2(Elastic-Compute-Cloud))**
-* **[EBS(Elastic Block Storage)](#EBS(Elastic-Block-Storage))**
-* **[ELB(Elastic Load Balancers)](#ELB(Elastic-Load-Balancers))**
+* **[EC2(Elastic Compute Cloud)](#ec2elastic-compute-cloud)**
+* **[EBS(Elastic Block Storage)](#ebselastic-block-storage)**
+* **[ELB(Elastic Load Balancers)](#elbelastic-load-balancers)**
 
 ## EC2(Elastic Compute Cloud)
 ### EC2 사용시 내는 다양한 지불 방법
