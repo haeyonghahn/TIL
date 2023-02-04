@@ -42,3 +42,57 @@
 
 ## 실습
 EC2 인스턴스를 생성하여 메모리 가능 사용 여부를 확인하는 CloudWatch를 만들어보자.
+
+__EC2 인스턴스 생성__   
+![image](https://user-images.githubusercontent.com/31242766/216757570-fbf56a40-f899-4821-9ce2-569554813d92.png)
+
+__datagrip 파일 다운로드__     
+[링크](https://download.jetbrains.com/datagrip/datagrip-2020.1.5.dmg?_ga=2.262501066.737529424.1673857455-953513752.1673857455&_gl=1*1ml80rw*_ga*OTUzNTEzNzUyLjE2NzM4NTc0NTU.*_ga_9J976DJZ68*MTY3Mzg1NzQ1NC4xLjAuMTY3Mzg1NzQ1OS4wLjAuMA..)    
+해당 파일을 EC2 인스턴스에 전송함으로써 cloudWatch 임계값을 설정하여 Alarm을 울려보자.
+
+__EC2 인스턴스에 datagrip 파일 전송__   
+```linux
+scp -i awslearner-cw.pem datagrip-2020.1.5.dmg ec2-user@ec2-54-180-125-70.ap-northeast-2.compute.amazonaws.com:datagrip.dmg
+```
+- `scp` : secure copy protocol 의 약자로서 서버 A에서 서버 B로 전송할 때 사용하는 프로토콜이다.
+
+![image](https://user-images.githubusercontent.com/31242766/216758306-b051bc2f-516a-4cb1-8532-29bb1f82d53e.png)
+![image](https://user-images.githubusercontent.com/31242766/216758337-4d1e42f4-0d81-473b-88c0-eeb4e8b8e22f.png)
+
+__CloudWatch 대시보드__    
+![image](https://user-images.githubusercontent.com/31242766/216758402-1089f83e-1fa0-4dee-8398-2ad878640f19.png)
+![image](https://user-images.githubusercontent.com/31242766/216758428-68f11f17-f910-453b-a2d0-c123ff470341.png)
+
+EC2 인스턴스 모니터링에서도 확인할 수 있다.   
+![image](https://user-images.githubusercontent.com/31242766/216758469-47ad2e3d-0c64-4ad9-9371-c206dae6ccfe.png)
+
+세부 모니터링을 사용하여 주기를 짧게 할 수 있다.(유료)   
+![image](https://user-images.githubusercontent.com/31242766/216758502-5c56c717-06c8-48c9-aad4-c5a24f9d11fe.png)
+
+__경보__   
+![image](https://user-images.githubusercontent.com/31242766/216758543-05519f8f-aa79-46de-923f-8fde62b2b1bb.png)   
+EBS의 `VolumeWriteBytes`로 테스트해보자.   
+![image](https://user-images.githubusercontent.com/31242766/216758612-6d1b3f95-ffda-42e1-8af6-444bea3d1011.png)    
+`VolumeId`는 EC2 인스턴스 생성시 생성되었던 `EBS Vloume` ID 이다.
+![image](https://user-images.githubusercontent.com/31242766/216758772-b52758e8-a52e-4ca4-b634-51114a6e30ba.png)   
+알람을 설정했음에도 불구하고 데이터가 들어오지 않을 때 데이터를 어떻게 처리하는지에 대한 행동을 설정하는 것이다.    
+![image](https://user-images.githubusercontent.com/31242766/216758787-db0d178d-12f7-4f7f-9518-823869901c0f.png)    
+알람을 어떻게 보낼지 설정한다.   
+![image](https://user-images.githubusercontent.com/31242766/216758934-1cb94c1c-bd8f-417b-b6fc-f1458f10cf77.png)    
+- Auto Scaling 작업 : 예를 들어, 메모리 부족 현상이 발생했을 때 경보가 발생하며 메모리를 더 추가할 수 있도록 한다. 
+- EC2 작업 : 현재 EBS Metrics를 사용할 것이기 때문에 비활성화되어 있다.
+- Systems Manager 작업 :  경보가 발생했을 때 경보의 심각성을 수치화하여 얼마나 신속히 대처할 수 있는지 인사이트를 보기 원할 때 사용되어진다.   
+
+![image](https://user-images.githubusercontent.com/31242766/216759110-269dfc39-9c28-441d-b81d-31247c74ff5f.png)
+
+![image](https://user-images.githubusercontent.com/31242766/216759182-e96ab843-0cc1-4cea-bfcb-8fe1eb1ca678.png)
+![image](https://user-images.githubusercontent.com/31242766/216759223-a462e940-e1d9-4d72-a114-f54a92db651c.png)
+
+__데이터를 다시 전송__    
+datagrip.dmg를 다시 전송하여 CloudWatch를 확인해보자.
+```linux
+scp -i awslearner-cw.pem datagrip-2020.1.5.dmg ec2-user@ec2-54-180-125-70.ap-northeast-2.compute.amazonaws.com:datagrip2.dmg
+```
+![image](https://user-images.githubusercontent.com/31242766/216759505-e8d6b9f2-9159-4623-8180-1612b8debd0f.png)
+![image](https://user-images.githubusercontent.com/31242766/216759539-ac759ec5-8148-43f4-8091-e913eacd670e.png)
+![image](https://user-images.githubusercontent.com/31242766/216759576-e9623bd9-fb74-47e7-9cae-12eb23cdbc6a.png)
