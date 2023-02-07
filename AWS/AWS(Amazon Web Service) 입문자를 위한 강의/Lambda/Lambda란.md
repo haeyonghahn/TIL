@@ -41,3 +41,23 @@ Lambda함수에 보내고 싶은 값을 전달할 수 있다.
 - `Deploy` 버튼은 코드를 수정하고나서 버튼을 클릭해야 수정된 코드가 반영이 된다.
 
 ## 실습 2
+Lambda함수를 생성하고 S3에 어떤 것이 업로드(PutObject)가 되었을 때 Lambda함수를 트리거하도록 구성해보자. S3버켓에 날씨 온도 데이터인 json 파일이 실시간으로 업로드된다고 가정해보자. 측정된 온도가 특정 임계값을 넘는다면 메시지를 표시해주도록 Lambda함수를 구성해보자.   
+![image](https://user-images.githubusercontent.com/31242766/217243408-a868e386-19ba-4724-8ca6-f133d0ea2437.png)
+
+### Lambda 함수 생성
+- Lambda -> 함수 -> 함수 생성
+![image](https://user-images.githubusercontent.com/31242766/217244792-da956287-6fa3-485d-bf81-75f5dfd24fab.png)
+
+### S3 버킷 생성
+- Amazon S3 -> 버킷 -> 버킷 만들기   
+![image](https://user-images.githubusercontent.com/31242766/217246442-efe822b8-ecf8-40a6-84fe-f33769361df6.png)
+
+- Amazon S3 -> 버킷 -> awslearner-lambda-temp-trigger -> 속성 -> 이벤트 알림    
+![image](https://user-images.githubusercontent.com/31242766/217246811-dd685f5c-c21a-4cdb-b493-01d23500efce.png)
+![image](https://user-images.githubusercontent.com/31242766/217247067-ad965307-b7cc-4e5c-97e1-d1a9e66c82d7.png)
+![image](https://user-images.githubusercontent.com/31242766/217247349-af4d693b-2699-46d9-8a66-5bd93f1b0b13.png)
+![image](https://user-images.githubusercontent.com/31242766/217247665-11436f1a-86b4-45bf-99de-f89c2baa8620.png)
+
+### S3에 파일 업로드 후 Lambda 확인
+![image](https://user-images.githubusercontent.com/31242766/217248286-cd9f8c62-8896-4212-b36c-afff1c37218f.png)
+![image](https://user-images.githubusercontent.com/31242766/217251106-47596924-253f-4fe7-8536-975a3c024779.png)
