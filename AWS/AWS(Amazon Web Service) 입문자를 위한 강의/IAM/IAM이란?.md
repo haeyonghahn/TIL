@@ -1,4 +1,6 @@
 # IAM
+해당 문서는 [AWS(Amazon Web Service) 입문자를 위한 강의](https://www.inflearn.com/course/aws-%EC%9E%85%EB%AC%B8/dashboard)를 토대로 작성되었습니다.
+
 ## 목차
   * **[IAM(Identity and Access Management)이란?](#IAM(Identity-and-Access-Management)이란?)**
   * **[IAM 정책 시뮬레이터](#IAM-정책-시뮬레이터)**
