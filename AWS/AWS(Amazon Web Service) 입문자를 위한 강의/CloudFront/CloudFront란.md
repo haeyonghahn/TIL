@@ -1,4 +1,6 @@
 # CloudFront
+해당 문서는 [AWS(Amazon Web Service) 입문자를 위한 강의](https://www.inflearn.com/course/aws-%EC%9E%85%EB%AC%B8/dashboard)를 토대로 작성되었습니다.
+
 - 정적, 동적, 실시간 웹사이트 컨텐츠를 유저들에게 전달
 - Edge Location을 사용
 - 컨텐트 딜리버리 네트워크 Content Delivery Network(CDN)
