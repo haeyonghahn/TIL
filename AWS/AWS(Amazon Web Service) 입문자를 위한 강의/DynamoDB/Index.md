@@ -1,4 +1,6 @@
 # Index
+해당 문서는 [AWS(Amazon Web Service) 입문자를 위한 강의](https://www.inflearn.com/course/aws-%EC%9E%85%EB%AC%B8/dashboard)를 토대로 작성되었습니다.
+
 - 특정 컬럼만을 사용하여 쿼리
 - 테이블 전체가 아닌 기준점(pivot)을 사용해 쿼리가 이루어짐
 - 매우 큰 쿼리 성능 효과
