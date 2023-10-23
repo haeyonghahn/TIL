@@ -45,7 +45,58 @@ Queue(FIFO) / Stack(FILO) 구현에 사용
 ```redis
 
 ```
-
+## Set
+Redis 에서는 Set 에 포함된 값들을 멤버라고 표현한다. 여러 멤버가 모여 집합 (Set) 을 구성한다.    
+```redis
+sadd {key} {member} [{member} ...]
+key 에 새로운 멤버들을 추가. key 가 없으면 새로 만듬
+```
+```redis
+smembers {key}
+key 에 설정된 모든 멤버 반환
+```
+```redis
+srem {key} {member [{member} ...]}
+key 에 포함된 멤버들 삭제. 없는 멤버 입력하면 무시됨
+```
+```redis
+scard {key}
+key 에 저장된 멤버 수를 반환
+```
+```redis
+sismember {key} {member}
+member 가 해당 key 에 포함되는지 검사
+```
+## Hash
+Hash 자체를 나타내는 key 와 해당 key 에 포함된 field 까지 사용해서 값을 조회 및 저장할 수 있다.
+```redis
+hset {key} {field} {value} [{field} {value} ...]
+key 를 이름으로 한 Hash 자료 구조에 field 와 value 값을 저장
+```
+```redis
+hget {key} {field}
+key Hash 값에 포함된 field 의 value 를 가져옴
+```
+```redis
+hdel {key} {field} [{field} ...]
+field 값으로 데이터 삭제
+```
+```redis
+hlen {key}
+Hash 가 갖고 있는 field 갯수 반환
+```
+```redis
+hkeys {key}
+Hash 가 갖고 있는 모든 field 출력
+```
+```redis
+hvals {key}
+Hash 가 갖고 있는 모든 value 출력
+```
+```redis
+hgetall {key}
+Hash 가 갖고 있는 모든 field 와 value 출력
+```
 ## 조회
 ```redis
 keys * : 
@@ -92,56 +143,4 @@ flushdb : 현재 사용중인 DB 의 모든 데이터 삭제
 info : redis 서버 설정 상태 조회
 
 예시) info replication
-```
-### Set
-Redis 에서는 Set 에 포함된 값들을 멤버라고 표현한다. 여러 멤버가 모여 집합 (Set) 을 구성한다.    
-```redis
-sadd {key} {member} [{member} ...]
-key 에 새로운 멤버들을 추가. key 가 없으면 새로 만듬
-```
-```redis
-smembers {key}
-key 에 설정된 모든 멤버 반환
-```
-```redis
-srem {key} {member [{member} ...]}
-key 에 포함된 멤버들 삭제. 없는 멤버 입력하면 무시됨
-```
-```redis
-scard {key}
-key 에 저장된 멤버 수를 반환
-```
-```redis
-sismember {key} {member}
-member 가 해당 key 에 포함되는지 검사
-```
-### Hash
-Hash 자체를 나타내는 key 와 해당 key 에 포함된 field 까지 사용해서 값을 조회 및 저장할 수 있다.
-```redis
-hset {key} {field} {value} [{field} {value} ...]
-key 를 이름으로 한 Hash 자료 구조에 field 와 value 값을 저장
-```
-```redis
-hget {key} {field}
-key Hash 값에 포함된 field 의 value 를 가져옴
-```
-```redis
-hdel {key} {field} [{field} ...]
-field 값으로 데이터 삭제
-```
-```redis
-hlen {key}
-Hash 가 갖고 있는 field 갯수 반환
-```
-```redis
-hkeys {key}
-Hash 가 갖고 있는 모든 field 출력
-```
-```redis
-hvals {key}
-Hash 가 갖고 있는 모든 value 출력
-```
-```redis
-hgetall {key}
-Hash 가 갖고 있는 모든 field 와 value 출력
 ```
