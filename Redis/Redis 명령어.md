@@ -1,8 +1,7 @@
 # Redis 명령어
-## 저장
-### String
+## String
 문자열, 숫자, serialized object(JSON string) 등 저장
-#### SET
+### SET
 ```redis
 set {key} {value} : key, value 를 저장
 
@@ -15,30 +14,38 @@ redis에서는 일반적으로 키를 만들 때 콜론을 이용하여 의미�
 
 SET inflearn-redis:ko:price 200
 ```
-#### MSET
+### MSET
 ```redis
 mset {key} {value} [{key} {value} ...] : 여러 개의 key, value 를 한번에 저장
 
 예시) MSET price 100 language ko
 ```
-#### MGET
+### MGET
 ```redis
 mget {key} [{key} ...] : 여러 개의 key 에 해당하는 value 를 한번에 가져옴
 
 예시) MGET lecture price language
 ```
-#### INCR
+### INCR
 ```redis
 INCR key : incr 명령어는 increase의 약자로 숫자형 스트링 값을 1 올릴 때 사용됨
 
 예시) INCR price
 ```
-#### INCRBY
+### INCRBY
 ```redis
 INCRBY key value : increaseby는 숫자형 스트링의 값에 특정 값을 더할 때 사용됨
 
 예시) INCRBY price 10
 ```
+## Lists
+String을 Linked List로 저장 -> push / pop에 최적화 O(1)     
+Queue(FIFO) / Stack(FILO) 구현에 사용    
+![image](https://github.com/haeyonghahn/TIL/assets/31242766/8f290084-7251-45f3-8c36-4db7fd46509a)
+```redis
+
+```
+
 ## 조회
 ```redis
 keys * : 
