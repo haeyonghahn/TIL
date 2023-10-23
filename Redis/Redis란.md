@@ -34,3 +34,9 @@
   - 데이터베이스 캐싱 : 데이터베이스 조회나 계산 결과를 저장하여 재요청시 사용
   - CDN : 원본 서버의 컨텐츠를 PoP 서버에 저장하여 사용자와 가까운 서버에서 요청 처리
   - 어플리케이션 캐싱 : 어플리케이션에서 데이터나 계산 결과를 캐싱하여 반복적 작업
+
+## Cache Hit / Miss
+![image](https://github.com/haeyonghahn/TIL/assets/31242766/60d91a98-ec00-469b-a139-2a4f333108d5)
+
+## Cache-Aside pattern
+![image](https://github.com/haeyonghahn/TIL/assets/31242766/9a99418a-9333-4a0a-8b31-153fc7b69d59)
