@@ -1,14 +1,43 @@
 # Redis 명령어
 ## 저장
 ### String
+문자열, 숫자, serialized object(JSON string) 등 저장
+#### SET
 ```redis
 set {key} {value} : key, value 를 저장
+
+예시) SET lecture inflearn-redis    
+예시) SET inflearn-redis '{"price": 100, "language": "ko"}' 레디스에는 JSON string을 직접 저장할 수도 있다.
 ```
+redis에서는 일반적으로 키를 만들 때 콜론을 이용하여 의미별로 구분해준다.
+```redis
+'인프런 레디스 강좌의 한국어 버전의 가격이 200 이다'라는 것을 저장하고 싶을 때
+
+SET inflearn-redis:ko:price 200
+```
+#### MSET
 ```redis
 mset {key} {value} [{key} {value} ...] : 여러 개의 key, value 를 한번에 저장
+
+예시) MSET price 100 language ko
 ```
+#### MGET
 ```redis
-setex {key} {seconds} {value} : key, seconds, value 저장 (설정한 시간 뒤에 소멸)
+mget {key} [{key} ...] : 여러 개의 key 에 해당하는 value 를 한번에 가져옴
+
+예시) MGET lecture price language
+```
+#### INCR
+```redis
+INCR key : incr 명령어는 increase의 약자로 숫자형 스트링 값을 1 올릴 때 사용됨
+
+예시) INCR price
+```
+#### INCRBY
+```redis
+INCRBY key value : increaseby는 숫자형 스트링의 값에 특정 값을 더할 때 사용됨
+
+예시) INCRBY price 10
 ```
 ## 조회
 ```redis
@@ -17,9 +46,6 @@ keys * :
 ```
 ```redis
 get {key} : 지정한 key 에 해당하는 value 를 가져옴
-```
-```redis
-mget {key} [{key} ...] : 여러 개의 key 에 해당하는 value 를 한번에 가져옴
 ```
 ```redis
 ttl {key} : key 의 만료 시간을 초 단위로 보여줌 (-1 은 만료시간 없음, -2 는 데이터 없음)
