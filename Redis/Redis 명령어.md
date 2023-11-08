@@ -41,10 +41,48 @@ INCRBY key value : increaseby는 숫자형 스트링의 값에 특정 값을 더
 ## Lists
 String을 Linked List로 저장 -> push / pop에 최적화 O(1)     
 Queue(FIFO) / Stack(FILO) 구현에 사용    
-![image](https://github.com/haeyonghahn/TIL/assets/31242766/8f290084-7251-45f3-8c36-4db7fd46509a)
-```redis
 
+![image](https://github.com/haeyonghahn/TIL/assets/31242766/8f290084-7251-45f3-8c36-4db7fd46509a)
+
+### RPUSH
+```redis
+RPUSH key value [value ...] : 지정된 모든 값을 키에 저장된 목록의 끝에 넣는다.
+
+예시) RPUSH queue job1 job2 job3
 ```
+### RPOP
+```redis
+RPOP queue
+```
+### LPUSH
+```redis
+LPUSH key value [value ...] : 지정된 모든 값을 키에 저장된 목록의 처음에 넣는다.
+
+예시) LPUSH stack job1 job2 job3
+```
+### LPOP
+```redis
+LPOP stack
+```
+### LRANGE
+```redis
+LRANGE key start stop : list 형식으로 저장된 키의 값을 개수로 인덱스를 지정하여 가져올 수 있음
+
+예시) LRANGE queue -2 -1
+```
+### LTRIM
+```redis
+LTRIM key start stop : 키의 지정된 요소만큼 범위를 잘라낸다.
+
+예시) LTRIM queue 0 0
+```
+### LLEN
+```redis
+LLEN key : 키에 저장된 목록의 길이를 반환. 키에 값이 없으면 0을 리턴, 목록형이 아니면 에러를 반환.
+
+예시) LLEN queue
+```
+
 ## Set
 Redis 에서는 Set 에 포함된 값들을 멤버라고 표현한다. 여러 멤버가 모여 집합 (Set) 을 구성한다.    
 ```redis
