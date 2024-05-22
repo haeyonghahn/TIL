@@ -1,49 +1,63 @@
 # Nginx
 ### nginx 설치
-`amazon-linux-2`의 경우 `yum`을 활용하여 `nginx`의 설치가 지원되지 않는다. 그렇기 때문에 `amazon-linux-extras`를 활용하여 nginx를 설치해야 한다.
+Amazon Linux에 Nginx를 설치하는 방법을 단계별로 설명. Amazon Linux 2를 기준으로 설명한다.
+
+#### 1. 시스템 업데이트
 ```linux
-sudo amazon-linux-extras install -y nginx1
+sudo yum update -y
 ```
-### 버전 확인
+
+#### 2. EPEL(Extra Packages for Enterprise Linux) 리포지토리 설치
+EPEL 리포지토리에는 Amazon Linux의 기본 리포지토리에 없는 추가 패키지가 포함되어 있다. Nginx를 설치하려면 EPEL 리포지토리를 활성화해야 한다.
 ```linux
+sudo amazon-linux-extras install epel -y
+```
+
+#### 3. Nginx 설치
+```linux
+sudo yum install nginx -y
+```
+
+#### 4. Nginx 시작 및 자동 시작 설정
+Nginx를 시작하고, 시스템 부팅 시 자동으로 시작되도록 설정한다. 기본적으로 nginx는 서버가 부팅될 때 자동으로 시작한다.
+```linux
+sudo systemctl start nginx
+
+# 자동 부팅 활성화, 비활성화
+sudo systemctl enable nginx
+sudo systemctl disable nginx
+```
+
+#### 5. Nginx 상태 확인
+Nginx가 제대로 설치되고 실행 중인지 확인한다.
+```linux
+# nginx 버전 확인
 nginx -v
 
-nginx version: nginx/1.20.0
-```
-### nginx 서비스 시작하기
-```linux
-sudo service nginx start
+nginx version: nginx/1.24.0
 
-Redirecting to /bin/systemctl start nginx.service
-```
-### 실행 확인하기
-```linux
+# nginx 상태 확인
 sudo systemctl status nginx
 ```
+
 ![nginx실행확인](https://github.com/haeyonghahn/TIL/blob/master/Nginx/images/nginx%EC%8B%A4%ED%96%89%ED%99%95%EC%9D%B8.PNG)
 
-### nginx 서비스 중단하기
+#### nginx 서비스 중단하기
 ```linux
 sudo systemctl stop nginx
 ```
-### nginx 오류 확인하기
+
+#### nginx 오류 확인하기
 ```linux
 sudo nginx -t
 ```
-### nginx 재시작하기
+
+#### nginx 재시작하기
 ```linux
 sudo service nginx restart
 ```
-### 수정된 파일 적용하여 연결을 끊지 않고 재실행
+
+#### 수정된 파일 적용하여 연결을 끊지 않고 재실행
 ```linux
 sudo service nginx reload
 ```
-### 자동 시작 비활성화, 활성화
-```linux
-기본적으로 nginx는 서버가 부팅될 때 자동으로 시작한다.
-
-sudo service disable nginx
-sudo service enable nginx
-```
-### 참고 
-https://jojoldu.tistory.com/441
