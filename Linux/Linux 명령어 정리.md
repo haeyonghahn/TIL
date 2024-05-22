@@ -1,7 +1,10 @@
 # Linux 명령어
 ## 목차
+* **[id](#id)**
 * **[useradd](#useradd)**
 * **[passwd](#passwd)**
+* **[usermod](#usermod)**
+* **[userdel](#userdel)**
 * **[more](#more)**
 * **[cp(Copy)](#cp(Copy))**
 * **[mv(Move)](#mv(Move))**
@@ -10,6 +13,28 @@
 * **[tail](#tail)**
 * **[ssh](#ssh)**
 * **[su와 sudo](#su와-sudo)**
+
+## id
+리눅스 시스템에서 사용자의 UID, GID, 그룹 정보를 보여준다.
+```linux
+id ec2-user
+
+uid=1000(ec2-user) gid=1000(ec2-user) groups=1000(ec2-user),4(adm),10(wheel),190(systemd-journal)
+```
+- `UID`: 사용자 ID (User ID)
+- `GID`: 기본 그룹 ID (Group ID)
+- `groups`: 사용자가 속한 그룹들의 목록
+- `uid=1000(ec2-user)`
+  - `uid=1000`: 사용자의 고유 ID이다. UID는 시스템에서 사용자를 식별하기 위해 사용되는 고유 숫자이다.
+  - `ec2-user`: UID 1000에 해당하는 사용자의 이름이다. 여기서는 `ec2-user`라는 사용자가 UID 1000을 가지고 있다.
+- `gid=1000(ec2-user)`
+  - `gid=1000`: 사용자의 기본 그룹 ID이다. GID는 그룹을 식별하기 위해 사용되는 고유 숫자이다.
+  - `ec2-user`: GID 1000에 해당하는 그룹의 이름이다. 여기서는 ec2-user라는 그룹이 GID 1000을 가지고 있다.
+- `groups=1000(ec2-user),4(adm),10(wheel),190(systemd-journal)`
+  - `1000(ec2-user)`: 사용자는 기본 그룹인 ec2-user 그룹에 속해 있으며, 이 그룹의 GID는 1000이다.
+  - `4(adm)`: 사용자는 adm 그룹에도 속해 있으며, 이 그룹의 GID는 4이다. adm 그룹은 일반적으로 시스템 로그 파일을 읽을 수 있는 권한을 제공한다.
+  - `10(wheel)`: 사용자는 wheel 그룹에도 속해 있으며, 이 그룹의 GID는 10이다. wheel 그룹은 종종 sudo 명령어를 사용할 수 있는 권한을 제공하는 그룹이다.
+  - `190(systemd-journal)`: 사용자는 systemd-journal 그룹에도 속해 있으며, 이 그룹의 GID는 190이다. systemd-journal 그룹은 시스템 로그에 접근할 수 있는 권한을 제공한다.
 
 ## useradd
 리눅스 시스템에서 새로운 사용자를 추가할 때 사용된다.
@@ -32,6 +57,53 @@ sudo useradd -m -g wheel -d /home/newuser -s /bin/bash -c "John Doe" newuser
 사용자 비밀번호를 설정하려면 passwd 명령어를 사용한다. passwd 명령어를 사용하여 특정 사용자의 비밀번호를 설정할 수 있다.
 ```linux
 sudo passwd newuser
+```
+
+## usermod
+사용자 계정의 속성을 변경하는 데 사용된다.
+
+### 예제
+```
+sudo usermod -aG wheel exampleuser
+```
+- `-a`: 옵션은 사용자를 기존 그룹에 추가하는 옵션이다.
+- `-G`: 옵션은 사용자를 지정된 그룹에 추가하는 옵션이다.
+- `wheel`: 사용자가 추가될 그룹 이름이다.
+- `exampleuser`: 추가할 사용자 계정의 이름이다.
+
+## userdel
+사용자 계정을 시스템에서 제거하는 데 사용된다.   
+계정을 삭제할 때 홈 디렉터리와 메일 스풀을 포함하여 사용자와 관련된 모든 데이터를 삭제할 수 있다.
+
+### 기본 명령어
+```linux
+sudo userdel username
+```
+위 명령어는 사용자 계정을 삭제하지만, 사용자의 홈 디렉터리나 메일 스풀 파일은 삭제하지 않는다.
+
+### 홈 디렉터리와 메일 스풀을 포함하여 계정 삭제
+```linux
+sudo userdel -r username
+```
+
+### 추가 고려 사항
+`로그아웃 상태`: 사용자를 삭제하기 전에 해당 사용자가 시스템에서 로그아웃 상태인지 확인하는 것이 좋다. 사용자가 현재 로그인되어 있는 상태에서 계정을 삭제하면 예기치 않은 동작이 발생할 수 있다.   
+
+1. 현재 로그인된 사용자 확인
+```linux
+who
+```
+2. 특정 사용자가 로그인되어 있는지 확인
+```linux
+who | grep username
+```
+3. 프로세스 종료: 해당 사용자가 실행 중인 모든 프로세스를 종료
+```linux
+sudo pkill -u username
+```
+4. 관련 파일: 사용자가 시스템 내의 다른 디렉터리에 파일을 소유하고 있을 수 있다. 계정을 삭제하기 전에 이러한 파일을 찾고 적절히 처리하는 것이 좋다.
+```linux
+sudo find / -user username
 ```
 
 ## more
