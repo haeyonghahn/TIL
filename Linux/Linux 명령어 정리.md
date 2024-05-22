@@ -1,5 +1,7 @@
 # Linux 명령어
 ## 목차
+* **[useradd](#useradd)**
+* **[passwd](#passwd)**
 * **[more](#more)**
 * **[cp(Copy)](#cp(Copy))**
 * **[mv(Move)](#mv(Move))**
@@ -8,6 +10,29 @@
 * **[tail](#tail)**
 * **[ssh](#ssh)**
 * **[su와 sudo](#su와-sudo)**
+
+## useradd
+리눅스 시스템에서 새로운 사용자를 추가할 때 사용된다.
+
+### 예제
+```linux
+sudo useradd -m -g wheel -d /home/newuser -s /bin/bash -c "John Doe" newuser
+```
+- `-m`: /home/newuser 경로에 홈 디렉터리를 생성한다.
+- `-g wheel`: 사용자를 wheel 그룹에 추가한다.
+- `-d /home/newuser`: 홈 디렉터리를 /home/newuser로 지정합니다.
+- `-s /bin/bash`: 사용자의 로그인 셸을 /bin/bash로 지정합니다.
+- `-c "John Doe"`: 사용자 계정에 대한 설명을 "John Doe"로 설정합니다.
+- `newuser`: 새로 생성될 사용자의 이름입니다.
+
+이 명령어를 실행하면 newuser라는 사용자가 생성되고, 홈 디렉터리가 /home/newuser에 생성되며, wheel 그룹에 속하고,      
+/bin/bash 셸을 사용하게 되며, 계정 설명이 "John Doe"로 설정된다.
+
+## passwd
+사용자 비밀번호를 설정하려면 passwd 명령어를 사용한다. passwd 명령어를 사용하여 특정 사용자의 비밀번호를 설정할 수 있다.
+```linux
+sudo passwd newuser
+```
 
 ## more
 파일 내용을 확인하는 명령어. 파일을 읽어 화면에 화면 단위로 끊어서 출력하는 명령어. 위에서 아래 방향으로 출력되기 때문에 
