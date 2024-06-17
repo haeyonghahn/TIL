@@ -36,3 +36,19 @@ docker network ls
 ```
 docker network ls --filter driver=bridge
 ```
+
+## 환경 변수 파일 사용
+1. `.env` 파일을 생성한다.
+```
+# .env 파일
+MY_ENV_VAR=my_value
+ANOTHER_VAR=another_value
+```
+2. Docker 이미지를 빌드하고 `.env` 파일을 사용하여 컨테이너를 실행한다.
+```
+# Docker 이미지 빌드
+docker build -t my_image .
+
+# 컨테이너 실행 시 .env 파일 사용
+docker run --name my_container --env-file .env my_image
+```
