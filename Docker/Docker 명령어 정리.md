@@ -39,17 +39,19 @@ docker network ls --filter driver=bridge
 
 ## Build
 ```
-docker build [OPTIONS]
+docker build [OPTIONS] .
 ```
 `-t`, `--tag` : 이미지에 이름과 태그를 지정합니다.    
 `-f`, `--file` : Dockerfile의 경로를 지정합니다.    
 `--network` : 빌드 시 사용할 네트워크 모드를 지정합니다.    
+`--pull` : 베이스 이미지를 항상 다시 다운로드합니다.
 
 ### 예시
 ```
 docker build -t my-image:1.0 .
 docker build -f ./path/to/Dockerfile .
 docker build --network=host .
+docker build --pull .
 ```
 
 ## 환경 변수 파일 사용
