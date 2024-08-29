@@ -37,6 +37,21 @@ docker network ls
 docker network ls --filter driver=bridge
 ```
 
+## Build
+```
+docker build
+```
+`-t`, `--tag` : 이미지에 이름과 태그를 지정합니다.
+`-f`, `--file` : Dockerfile의 경로를 지정합니다.
+`--network` : 빌드 시 사용할 네트워크 모드를 지정합니다.
+
+### 예시
+```
+docker build -t my-image:1.0 .
+docker build -f ./path/to/Dockerfile .
+docker build --network=host .
+```
+
 ## 환경 변수 파일 사용
 1. `.env` 파일을 생성한다.
 ```
