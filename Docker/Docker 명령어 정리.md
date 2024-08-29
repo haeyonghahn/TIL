@@ -41,9 +41,9 @@ docker network ls --filter driver=bridge
 ```
 docker build
 ```
-`-t`, `--tag` : 이미지에 이름과 태그를 지정합니다.
-`-f`, `--file` : Dockerfile의 경로를 지정합니다.
-`--network` : 빌드 시 사용할 네트워크 모드를 지정합니다.
+`-t`, `--tag` : 이미지에 이름과 태그를 지정합니다.    
+`-f`, `--file` : Dockerfile의 경로를 지정합니다.    
+`--network` : 빌드 시 사용할 네트워크 모드를 지정합니다.    
 
 ### 예시
 ```
