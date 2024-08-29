@@ -39,7 +39,7 @@ docker network ls --filter driver=bridge
 
 ## Build
 ```
-docker build
+docker build [OPTIONS]
 ```
 `-t`, `--tag` : 이미지에 이름과 태그를 지정합니다.    
 `-f`, `--file` : Dockerfile의 경로를 지정합니다.    
