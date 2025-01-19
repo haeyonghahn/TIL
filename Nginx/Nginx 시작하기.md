@@ -4,19 +4,20 @@ Amazon Linux에 Nginx를 설치하는 방법을 단계별로 설명. Amazon Linu
 
 #### 1. 시스템 업데이트
 ```linux
-sudo yum update -y ((Amazon Linux 2))
+sudo yum update -y (Amazon Linux 2)
 sudo dnf update -y (Amazon Linux 2023)
 ```
 
 #### 2. EPEL(Extra Packages for Enterprise Linux) 리포지토리 설치
 EPEL 리포지토리에는 Amazon Linux의 기본 리포지토리에 없는 추가 패키지가 포함되어 있다. Nginx를 설치하려면 EPEL 리포지토리를 활성화해야 한다.
 ```linux
-sudo amazon-linux-extras install epel -y
+sudo amazon-linux-extras install epel -y (Amazon Linux 2)
 ```
 
 #### 3. Nginx 설치
 ```linux
-sudo yum install nginx -y
+sudo yum install nginx -y (Amazon Linux 2)
+sudo dnf install nginx -y (Amazon Linux 2023)
 ```
 
 #### 4. Nginx 시작 및 자동 시작 설정
