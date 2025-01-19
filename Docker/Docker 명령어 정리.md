@@ -69,3 +69,21 @@ docker build -t my_image .
 # 컨테이너 실행 시 .env 파일 사용
 docker run --name my_container --env-file .env my_image
 ```
+
+## Container 
+### Stop
+```
+docker stop <container_name_or_id>
+```
+### Delete
+```
+docker rm <container_name_or_id>
+```
+### 실행 중인 컨테이너를 한 번에 중지하고 삭제하기
+```
+docker rm -f <container_name_or_id>
+```
+### 모든 중지된 컨테이너 삭제
+```
+docker container prune
+```
