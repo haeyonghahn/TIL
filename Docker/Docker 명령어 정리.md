@@ -71,19 +71,40 @@ docker run --name my_container --env-file .env my_image
 ```
 
 ## Container 
-### Stop
+## Stop
 ```
 docker stop <container_name_or_id>
 ```
-### Delete
+## Delete
 ```
 docker rm <container_name_or_id>
 ```
-### 실행 중인 컨테이너를 한 번에 중지하고 삭제하기
+## 실행 중인 컨테이너를 한 번에 중지하고 삭제하기
 ```
 docker rm -f <container_name_or_id>
 ```
-### 모든 중지된 컨테이너 삭제
+## 모든 중지된 컨테이너 삭제
 ```
 docker container prune
+```
+
+## Image
+## 특정 이미지 삭제
+특정 이미지 ID 또는 이름을 사용하여 삭제합니다.
+```
+docker rmi <이미지_ID>   # 이미지 ID로 삭제
+docker rmi <이미지_이름>  # 이미지 이름으로 삭제
+```
+## 모든 이미지 삭제
+```
+docker image prune -a
+```
+`-a` : 사용하지 않는 모든 이미지 삭제 (태그 없는 이미지 포함).
+## 태그 없는 이미지(중간 이미지) 삭제
+```
+docker image prune
+```
+## 강제 삭제
+```
+docker rmi -f <이미지_ID>
 ```
