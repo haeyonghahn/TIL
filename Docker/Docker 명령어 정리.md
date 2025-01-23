@@ -55,13 +55,13 @@ docker build --pull .
 ```
 
 ## 환경 변수 파일 사용
-1. `.env` 파일을 생성한다.
+1. `.env` 파일을 생성합니다.
 ```
 # .env 파일
 MY_ENV_VAR=my_value
 ANOTHER_VAR=another_value
 ```
-2. Docker 이미지를 빌드하고 `.env` 파일을 사용하여 컨테이너를 실행한다.
+2. Docker 이미지를 빌드하고 `.env` 파일을 사용하여 컨테이너를 실행합니다.
 ```
 # Docker 이미지 빌드
 docker build -t my_image .
@@ -87,6 +87,7 @@ docker rm -f <container_name_or_id>
 ```
 docker container prune
 ```
+`-f`, `--force` : 자동 확인 옵션으로 사용자 확인 없이 바로 삭제합니다.
 
 ## Image
 ## 특정 이미지 삭제
@@ -107,4 +108,25 @@ docker image prune
 ## 강제 삭제
 ```
 docker rmi -f <이미지_ID>
+```
+
+## Image
+## 모든 사용하지 않는 볼륨 삭제
+```
+docker volume prune
+```
+`-f`, `--force` : 자동 확인 옵션으로 사용자 확인 없이 바로 삭제합니다.
+## 특정 볼륨 삭제
+```
+docker volume rm <volume_name>
+```
+## 사용하지 않는 볼륨 확인
+```
+docker volume ls -f dangling=true
+```
+
+## 모든 Docker 리소스와 함께 삭제
+사용하지 않는 볼륨과 함께 네트워크, 컨테이너, 이미지 등 다른 리소스도 정리할 수 있습니다.
+```
+docker system prune --volumes
 ```
