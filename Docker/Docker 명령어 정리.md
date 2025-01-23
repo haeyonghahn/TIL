@@ -86,6 +86,10 @@ docker rm <container_name_or_id>
 ```
 docker rm -f <container_name_or_id>
 ```
+### 모든 실행 중인 컨테이너 멈추기
+```
+docker stop $(docker ps -q)
+```
 ### 모든 중지된 컨테이너 삭제
 ```
 docker container prune
