@@ -26,6 +26,11 @@ sudo systemctl enable docker
 sudo usermod -a -G docker ec2-user
 ```
 
+#### 5. docker 명령어가 바로 적용이 안될 때
+```linux
+newgrp docker
+```
+
 ### Docker Compose 설치
 ```linux
 sudo curl -L "https://github.com/docker/compose/releases/latest/download/docker-compose-$(uname -s)-$(uname -m)" -o /usr/local/bin/docker-compose
