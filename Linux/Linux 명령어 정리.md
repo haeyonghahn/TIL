@@ -8,9 +8,9 @@
 * **[userdel](#userdel)**
 * **[chmod](#chmod)**
 * **[more](#more)**
-* **[cp(Copy)](#cp(copy))**
-* **[mv(Move)](#mv(Move))**
-* **[rm(Remove)](#rm(Remove))**
+* **[cp(Copy)](#cpcopy)**
+* **[mv(Move)](#mvmove)**
+* **[rm(Remove)](#rmremove)**
 * **[다중 명령어](#다중-명령어)**
 * **[tail](#tail)**
 * **[ssh](#ssh)**
