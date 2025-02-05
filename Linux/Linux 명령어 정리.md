@@ -6,8 +6,9 @@
 * **[usermod](#usermod)**
 * **[gpasswd](#gpasswd)**
 * **[userdel](#userdel)**
+* **[chmod](#chmod)**
 * **[more](#more)**
-* **[cp(Copy)](#cp(Copy))**
+* **[cp(Copy)](#cp(copy))**
 * **[mv(Move)](#mv(Move))**
 * **[rm(Remove)](#rm(Remove))**
 * **[다중 명령어](#다중-명령어)**
