@@ -71,6 +71,16 @@ docker build -t my_image .
 docker run --name my_container --env-file .env my_image
 ```
 
+## Buildx
+`docker buildx`는 Docker의 BuildKit을 활용한 확장 가능한 빌드 시스템을 제공합니다. Docker의 기본 `docker build` 명령을 확장하여,    
+더 많은 기능과 유연성을 제공합니다.
+```
+docker buildx create --use
+docker buildx build --platform linux/amd64,linux/arm64 -t yong7317/mongo-o2o:latest --push .
+```
+1. `멀티 플랫폼 빌드` : `docker buildx`는 여러 플랫폼(운영 체제와 아키텍처)에 대해 이미지를 동시에 빌드할 수 있습니다. 예를 들어, linux/amd64와 linux/arm64 같은 다양한 아키텍처에 대한 이미지를 동시에 빌드할 수 있습니다.
+2. `빌드 캐시` : `docker buildx`는 빌드를 최적화하기 위한 캐시 기능을 지원합니다. 이를 통해 이전 빌드의 결과물을 재사용하고, 빌드를 더 빠르고 효율적으로 만들 수 있습니다.
+
 ---
 
 ## Container 
