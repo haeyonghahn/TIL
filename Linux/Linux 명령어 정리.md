@@ -4,6 +4,7 @@
 * **[useradd](#useradd)**
 * **[passwd](#passwd)**
 * **[usermod](#usermod)**
+* **[gpasswd](#gpasswd)**
 * **[userdel](#userdel)**
 * **[more](#more)**
 * **[cp(Copy)](#cp(Copy))**
@@ -71,6 +72,33 @@ sudo usermod -aG wheel exampleuser
 - `-G`: 옵션은 사용자를 지정된 그룹에 추가하는 옵션이다.
 - `wheel`: 사용자가 추가될 그룹 이름이다.
 - `exampleuser`: 추가할 사용자 계정의 이름이다.
+
+### 그룹 확인 명령어
+```
+getent group nginx
+```
+- 만약 nginx 그룹이 존재한다면, 해당 그룹 정보가 출력된다.
+- 존재하지 않으면 아무 출력도 없을 것이다.
+
+### 추가 확인 방법
+`/etc/group` 파일을 열어 직접 확인할 수도 있다.
+```
+cat /etc/group | grep nginx
+```
+
+### 사용자 특정 그룹 확인 명령어
+```
+groups ec2-user
+
+ec2-user : ec2-user adm wheel systemd-journal nginx docker
+```
+
+## gpasswd
+그룹에서 사용자를 제거하려면 `gpasswd` 또는 `vigr` 명령어를 사용한다.
+```
+sudo gpasswd -d ec2-user nginx
+```
+
 
 ## userdel
 사용자 계정을 시스템에서 제거하는 데 사용된다.   
