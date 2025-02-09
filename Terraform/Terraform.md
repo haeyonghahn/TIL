@@ -55,4 +55,4 @@ PS C:\terraform\01_tf> terraform plan
 PS C:\terraform\01_tf> terraform destroy
 ```
 
-## Terraform 을 이용한 VPC 구성
+### Terraform 을 이용한 VPC 구성
