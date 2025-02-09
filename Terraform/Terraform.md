@@ -7,7 +7,7 @@ https://docs.aws.amazon.com/ko_kr/cli/latest/userguide/getting-started-install.h
 ### AWS CLI 를 이용한 AWS 계정 연동
 프롬프트에서 AWS IAM 계정 연동을 실시한다.
 ```cli
-C:\User\user> aws configure
+PS C:\User\user> aws configure
 AWS Access Key ID [None] : 
 AWS Secret Access Key [None] :
 Default region name [None] : ap-northeast-2
@@ -47,3 +47,12 @@ The key's randomart image is:
 |                 |
 +----[SHA256]-----+
 ```
+
+### Terraform 을 이용한 AWS 리소스 생성
+```cli
+PS C:\terraform\01_tf> terraform init
+PS C:\terraform\01_tf> terraform plan
+PS C:\terraform\01_tf> terraform destroy
+```
+
+## Terraform 을 이용한 VPC 구성
