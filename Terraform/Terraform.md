@@ -23,36 +23,14 @@ access_key     ****************S6N7 shared-credentials-file
 secret_key     ****************bLap shared-credentials-file
     region           ap-northeast-2      config-file    ~/.aws/config
 ```
-키페어 등록을 위한 sshkey 생성
-- C 드라이브에 `sshkey` 폴더를 생성한다.
-```cli
-PS C:\Users\user> ssh-keygen -t rsa -b 4096 -C "aws_keyfair" -f "C:\\sshkey/tf_keypair"
-Generating public/private rsa key pair.
-Enter passphrase (empty for no passphrase):
-Enter same passphrase again:
-Your identification has been saved in C:\\sshkey/tf_keypair
-Your public key has been saved in C:\\sshkey/tf_keypair.pub
-The key fingerprint is:
-SHA256:YjcBloLC6x9KMchs9Hz0GdrFcg20mSw/xQZgeeqGpyQ aws_keyfair
-The key's randomart image is:
-+---[RSA 4096]----+
-|.  .  o+=+o      |
-|.o. .oo=.=*.     |
-|=.+ ..+.X= +     |
-|.B o o =o.o      |
-|o o . = So       |
-| o E + * ..      |
-|. o + +          |
-| . . .           |
-|                 |
-+----[SHA256]-----+
-```
 
-### Terraform 을 이용한 AWS 리소스 생성
-```cli
-PS C:\terraform\01_tf> terraform init
-PS C:\terraform\01_tf> terraform plan
-PS C:\terraform\01_tf> terraform destroy
-```
+### Terraform 실행 체크리스트
+| 단계 | 명령어 | 설명 |
+|------|-------------------------------|----------------------------------|
+| ✅ 문법 및 구성 검증 | `terraform validate` | 문법 오류 및 변수 정의 확인 |
+| ✅ 변경 사항 미리 보기 | `terraform plan` | 실제로 적용될 변경 사항 확인 |
+| ✅ 코드 정리 | `terraform fmt -recursive` | 코드 스타일 자동 정리 |
+| ✅ Best Practice 체크 | `tflint` | 코드 분석 및 보안 문제 탐지 |
+| ✅ 환경 변수 검증 | `terraform console` | 변수 값 미리 확인 |
+| ✅ AWS 연결 테스트 | `aws sts get-caller-identity` | AWS 권한 및 연결 상태 확인 |
 
-### Terraform 을 이용한 VPC 구성
