@@ -25,3 +25,11 @@ db.store.find().pretty()
 ```
 db.store.find({ name: "Apple Store" })
 ```
+
+### 개수 제한 (limit()) & 건너뛰기 (skip())
+```
+db.store.find().limit(5)
+```
+```
+db.store.find().skip(10).limit(5)
+```
